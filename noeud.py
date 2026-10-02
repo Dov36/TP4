@@ -4,25 +4,25 @@ import matplotlib.pyplot as plt
 class Noeud:
 
     def __init__(self, valeur):
-        self.valeur = valeur                    #
+        self.valeur = valeur                    #constructeur
         self.enfants = [] 
 
-    def __repr__(self):
+    def __repr__(self):                         #methode 1
         return f"Noeud({self.valeur})"
 
-    def add_noeud(self,enfant) : 
+    def add_noeud(self,enfant) :                #ajout des noeuds 
         self.enfants.append(enfant)
 
-    def ecriture_polonaise(self) : 
+    def ecriture_polonaise(self) :              #ecriture poloaise
         texte = str(self.valeur)
         for x in self.enfants : 
             texte += " " + x.ecriture_polonaise()
         return texte
 
-    def affiche_polonaise(self) : 
+    def affiche_polonaise(self) :               #affichage
         print(self.ecriture_polonaise())
 
-    def evaluer(self, dic) :
+    def evaluer(self, dic) :                    #evaluation
         res = 0
         if isinstance(self.valeur,(int,float)): 
             return self.valeur
